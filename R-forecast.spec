@@ -4,21 +4,13 @@
 #
 Name     : R-forecast
 Version  : 8.5
-Release  : 10
+Release  : 11
 URL      : https://cran.r-project.org/src/contrib/forecast_8.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/forecast_8.5.tar.gz
 Summary  : Forecasting Functions for Time Series and Linear Models
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-forecast-lib = %{version}-%{release}
-Requires: R-gtable
-Requires: R-lazyeval
-Requires: R-munsell
-Requires: R-plyr
-Requires: R-quadprog
-Requires: R-quantmod
-Requires: R-scales
-Requires: R-tibble
 BuildRequires : R-RcppArmadillo
 BuildRequires : R-colorspace
 BuildRequires : R-fracdiff
@@ -58,10 +50,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552875210
+export SOURCE_DATE_EPOCH=1552899419
 
 %install
-export SOURCE_DATE_EPOCH=1552875210
+export SOURCE_DATE_EPOCH=1552899419
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
