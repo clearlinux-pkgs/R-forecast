@@ -4,27 +4,34 @@
 #
 Name     : R-forecast
 Version  : 8.5
-Release  : 8
+Release  : 9
 URL      : https://cran.r-project.org/src/contrib/forecast_8.5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/forecast_8.5.tar.gz
 Summary  : Forecasting Functions for Time Series and Linear Models
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-forecast-lib = %{version}-%{release}
-Requires: R-RcppArmadillo
-Requires: R-colorspace
-Requires: R-fracdiff
-Requires: R-ggplot2
-Requires: R-lmtest
-Requires: R-timeDate
-Requires: R-tseries
-Requires: R-urca
-Requires: R-zoo
+Requires: R-gtable
+Requires: R-lazyeval
+Requires: R-munsell
+Requires: R-plyr
+Requires: R-quadprog
+Requires: R-quantmod
+Requires: R-scales
+Requires: R-tibble
 BuildRequires : R-RcppArmadillo
 BuildRequires : R-colorspace
 BuildRequires : R-fracdiff
 BuildRequires : R-ggplot2
+BuildRequires : R-gtable
+BuildRequires : R-lazyeval
 BuildRequires : R-lmtest
+BuildRequires : R-munsell
+BuildRequires : R-plyr
+BuildRequires : R-quadprog
+BuildRequires : R-quantmod
+BuildRequires : R-scales
+BuildRequires : R-tibble
 BuildRequires : R-timeDate
 BuildRequires : R-tseries
 BuildRequires : R-urca
@@ -51,10 +58,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1547821945
+export SOURCE_DATE_EPOCH=1552875210
 
 %install
-export SOURCE_DATE_EPOCH=1547821945
+export SOURCE_DATE_EPOCH=1552875210
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -90,8 +97,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library forecast|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  forecast || :
 
 
 %files
@@ -127,7 +133,36 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/forecast/help/paths.rds
 /usr/lib64/R/library/forecast/html/00Index.html
 /usr/lib64/R/library/forecast/html/R.css
-/usr/lib64/R/library/forecast/libs/symbols.rds
+/usr/lib64/R/library/forecast/tests/testthat.R
+/usr/lib64/R/library/forecast/tests/testthat/test-accuracy.R
+/usr/lib64/R/library/forecast/tests/testthat/test-acf.R
+/usr/lib64/R/library/forecast/tests/testthat/test-arfima.R
+/usr/lib64/R/library/forecast/tests/testthat/test-arima.R
+/usr/lib64/R/library/forecast/tests/testthat/test-armaroots.R
+/usr/lib64/R/library/forecast/tests/testthat/test-bats.R
+/usr/lib64/R/library/forecast/tests/testthat/test-boxcox.R
+/usr/lib64/R/library/forecast/tests/testthat/test-calendar.R
+/usr/lib64/R/library/forecast/tests/testthat/test-clean.R
+/usr/lib64/R/library/forecast/tests/testthat/test-dshw.R
+/usr/lib64/R/library/forecast/tests/testthat/test-ets.R
+/usr/lib64/R/library/forecast/tests/testthat/test-forecast.R
+/usr/lib64/R/library/forecast/tests/testthat/test-forecast2.R
+/usr/lib64/R/library/forecast/tests/testthat/test-ggplot.R
+/usr/lib64/R/library/forecast/tests/testthat/test-graph.R
+/usr/lib64/R/library/forecast/tests/testthat/test-hfitted.R
+/usr/lib64/R/library/forecast/tests/testthat/test-mforecast.R
+/usr/lib64/R/library/forecast/tests/testthat/test-modelAR.R
+/usr/lib64/R/library/forecast/tests/testthat/test-msts.R
+/usr/lib64/R/library/forecast/tests/testthat/test-newarima2.R
+/usr/lib64/R/library/forecast/tests/testthat/test-nnetar.R
+/usr/lib64/R/library/forecast/tests/testthat/test-refit.R
+/usr/lib64/R/library/forecast/tests/testthat/test-season.R
+/usr/lib64/R/library/forecast/tests/testthat/test-spline.R
+/usr/lib64/R/library/forecast/tests/testthat/test-subset.R
+/usr/lib64/R/library/forecast/tests/testthat/test-tbats.R
+/usr/lib64/R/library/forecast/tests/testthat/test-thetaf.R
+/usr/lib64/R/library/forecast/tests/testthat/test-tslm.R
+/usr/lib64/R/library/forecast/tests/testthat/test-wrangle.R
 
 %files lib
 %defattr(-,root,root,-)
