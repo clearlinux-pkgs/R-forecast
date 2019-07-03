@@ -4,31 +4,33 @@
 #
 Name     : R-forecast
 Version  : 8.7
-Release  : 15
+Release  : 16
 URL      : https://cran.r-project.org/src/contrib/forecast_8.7.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/forecast_8.7.tar.gz
 Summary  : Forecasting Functions for Time Series and Linear Models
 Group    : Development/Tools
 License  : GPL-3.0
 Requires: R-forecast-lib = %{version}-%{release}
+Requires: R-Rcpp
 Requires: R-RcppArmadillo
 Requires: R-colorspace
 Requires: R-fracdiff
 Requires: R-ggplot2
 Requires: R-lmtest
-Requires: R-quadprog
-Requires: R-quantmod
+Requires: R-magrittr
+Requires: R-munsell
 Requires: R-timeDate
 Requires: R-tseries
 Requires: R-urca
 Requires: R-zoo
+BuildRequires : R-Rcpp
 BuildRequires : R-RcppArmadillo
 BuildRequires : R-colorspace
 BuildRequires : R-fracdiff
 BuildRequires : R-ggplot2
 BuildRequires : R-lmtest
-BuildRequires : R-quadprog
-BuildRequires : R-quantmod
+BuildRequires : R-magrittr
+BuildRequires : R-munsell
 BuildRequires : R-timeDate
 BuildRequires : R-tseries
 BuildRequires : R-urca
@@ -36,8 +38,8 @@ BuildRequires : R-zoo
 BuildRequires : buildreq-R
 
 %description
-forecast <img src="man/figures/logo.png" align="right" />
-======================
+univariate time series forecasts including exponential smoothing
+             via state space models and automatic ARIMA modelling.
 
 %package lib
 Summary: lib components for the R-forecast package.
@@ -54,13 +56,13 @@ lib components for the R-forecast package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1556989503
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562197514
 
 %install
-export SOURCE_DATE_EPOCH=1556989503
+export SOURCE_DATE_EPOCH=1562197514
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -89,7 +91,7 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
