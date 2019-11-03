@@ -4,7 +4,7 @@
 #
 Name     : R-forecast
 Version  : 8.9
-Release  : 21
+Release  : 22
 URL      : https://cran.r-project.org/src/contrib/forecast_8.9.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/forecast_8.9.tar.gz
 Summary  : Forecasting Functions for Time Series and Linear Models
