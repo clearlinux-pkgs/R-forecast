@@ -4,7 +4,7 @@
 #
 Name     : R-forecast
 Version  : 8.12
-Release  : 27
+Release  : 28
 URL      : https://cran.r-project.org/src/contrib/forecast_8.12.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/forecast_8.12.tar.gz
 Summary  : Forecasting Functions for Time Series and Linear Models
@@ -36,8 +36,8 @@ BuildRequires : R-zoo
 BuildRequires : buildreq-R
 
 %description
-forecast <img src="man/figures/logo.png" align="right" />
-======================
+univariate time series forecasts including exponential smoothing
+             via state space models and automatic ARIMA modelling.
 
 %package lib
 Summary: lib components for the R-forecast package.
@@ -49,21 +49,22 @@ lib components for the R-forecast package.
 
 %prep
 %setup -q -c -n forecast
+cd %{_builddir}/forecast
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1585692216
+export SOURCE_DATE_EPOCH=1589771551
 
 %install
-export SOURCE_DATE_EPOCH=1585692216
+export SOURCE_DATE_EPOCH=1589771551
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
