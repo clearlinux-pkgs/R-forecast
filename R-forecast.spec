@@ -4,7 +4,7 @@
 #
 Name     : R-forecast
 Version  : 8.18
-Release  : 51
+Release  : 52
 URL      : https://cran.r-project.org/src/contrib/forecast_8.18.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/forecast_8.18.tar.gz
 Summary  : Forecasting Functions for Time Series and Linear Models
