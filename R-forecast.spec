@@ -4,7 +4,7 @@
 #
 Name     : R-forecast
 Version  : 8.21
-Release  : 55
+Release  : 56
 URL      : https://cran.r-project.org/src/contrib/forecast_8.21.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/forecast_8.21.tar.gz
 Summary  : Forecasting Functions for Time Series and Linear Models
@@ -36,9 +36,6 @@ BuildRequires : R-tseries
 BuildRequires : R-urca
 BuildRequires : R-zoo
 BuildRequires : buildreq-R
-# Suppress stripping binaries
-%define __strip /bin/true
-%define debug_package %{nil}
 
 %description
 univariate time series forecasts including exponential smoothing
@@ -61,10 +58,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1677547868
+export SOURCE_DATE_EPOCH=1678820072
 
 %install
-export SOURCE_DATE_EPOCH=1677547868
+export SOURCE_DATE_EPOCH=1678820072
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
