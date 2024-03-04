@@ -1,5 +1,5 @@
 PKG_NAME := R-forecast
-URL = https://cran.r-project.org/src/contrib/forecast_8.21.1.tar.gz
+URL = https://cran.r-project.org/src/contrib/forecast_8.22.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
